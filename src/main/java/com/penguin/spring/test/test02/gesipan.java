@@ -1,13 +1,13 @@
 package com.penguin.spring.test.test02;
 
-public class gesipan {
+public class Gesipan {
 
 	//title, user, content 
 	private String title;
 	private String user;
 	private String content;
 	
-	public gesipan(String title, String user, String content) {
+	public Gesipan(String title, String user, String content) {
 		this.title = title;
 		this.user = user;
 		this.content = content;	
