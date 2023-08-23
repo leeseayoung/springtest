@@ -12,7 +12,8 @@ import com.penguin.spring.test.datebase.service.StoreTest01Service;
 
 @Controller
 public class StoreTest01Controller {
-
+	
+	//밑에 친구가 알아서 해줌 
 	@Autowired
 	private StoreTest01Service storeTest01Service;
 	
