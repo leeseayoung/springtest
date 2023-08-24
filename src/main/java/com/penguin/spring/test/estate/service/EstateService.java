@@ -9,7 +9,7 @@ import com.penguin.spring.test.estate.domain.Estate;
 import com.penguin.spring.test.estate.repository.EstateRepository;
 
 @Service
-public class EstateService {
+public class EstateService<EstateAreaPrice> {
 
 	@Autowired	// 메소드 객체 생성 할려고 밑에 코드 사용
 	private EstateRepository estaterspository;
@@ -23,14 +23,19 @@ public class EstateService {
 	
 	
 		//                            int rentPrice
-	public List<Estate> getEstateType(String type) {
+	public List<Estate> getEstateType(int rentPrice) {
 																	//rentPrice
-		List<Estate> estateType = estaterspository.selectEstateType(type);
+		List<Estate> estateType = estaterspository.selectEstateType(rentPrice);
 		
 		return estateType;
 		
 	}
 	
-	
+	public List<EstateAreaPrice> getEstateAreaPrice(int area, String type) {
+		
+		List<EstateAreaPrice> estateAreaPrice = estaterspository.selectEstateAreaPrice(area, type);
+		
+		return estateAreaPrice;
+	}
 	
 }

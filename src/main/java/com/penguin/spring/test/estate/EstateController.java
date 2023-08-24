@@ -27,13 +27,17 @@ public class EstateController {
 		
 	@RequestMapping("/2")
 	@ResponseBody									//"rent" int rentPrice
-		public List<Estate> estateType(@RequestParam("type") String type) {
-			List<Estate> estateType = estateService.getEstateType(type);
+		public List<Estate> estateType(@RequestParam("rentPrice") int rentPrice) {
+			List<Estate> estateType = estateService.getEstateType(rentPrice);
 			return estateType;
-			
-		
 	}
 	
+	@RequestMapping("/3")
+	@ResponseBody									//"rent" int rentPrice
+		public List<Estate> estateAreaPrice(@RequestParam("area") int area, @RequestParam("type") String type) {
+			List<Estate> estateAreaPrice = estateService.getEstateAreaPrice(area, type);
+			return estateAreaPrice;
+	}
 	
 	
 }

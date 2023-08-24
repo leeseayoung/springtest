@@ -23,7 +23,7 @@
  			`id` = 	#{id}
  	</select>
 											<!-- int  -->
-	<select id ="selectEstateType" parameterType="String"
+	<select id ="selectEstateType" parameterType="int"
  	resultType="com.penguin.spring.test.estate.domain.Estate">
  		SELECT
  			`id`
@@ -38,11 +38,32 @@
  		FROM
  			`real_estate`
  		WHERE
- 		<!-- <![CDATA[ `rentPrice` < #{rentPrice} ]]>
- 		 AND `type` = 월세-->
- 		 
- 			`type` = #{type}	
-		ORDER BY `rentPrice`;
+			`type` = '월세'
+			AND  <![CDATA[ `rentPrice` < #{rentPrice} ]]>
+
+ 			
+ 	</select> 	
+ 	
+ 	<select id ="selectEstateAreaPrice" 
+ 	resultType="com.penguin.spring.test.estate.domain.Estate">
+ 		SELECT
+ 			`id`
+ 			,`realtorId`
+ 			,`address`
+ 			,`area`
+ 			,`type`
+ 			,`price`
+ 			,`rentPrice`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`real_estate`
+ 		WHERE
+			<!-- <![CDATA[ `price` <= #{price} ]]>  -->
+			 
+			<![CDATA[ `area` >= #{area} ]]>
+			AND  `type` = #{type}
+
  			
  	</select> 	
  
