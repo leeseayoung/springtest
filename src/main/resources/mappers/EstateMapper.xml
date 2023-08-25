@@ -43,8 +43,8 @@
 
  			
  	</select> 	
- 	
- 	<select id ="selectEstateAreaPrice" 
+ 											<!-- 여러개면 맵으로 (조건) -->
+ 	<select id ="selectEstateAreaPrice"  parameterType="map"
  	resultType="com.penguin.spring.test.estate.domain.Estate">
  		SELECT
  			`id`
@@ -66,5 +66,64 @@
 
  			
  	</select> 	
+ 
+ 	<insert id="InsertEstate1" 
+ 	parameterType="com.penguin.spring.test.estate.domain.Estate">
+ 		INSERT INTO
+ 				`real_estate`
+ 			(
+ 				`realtorId`
+ 				, `address`
+ 				, `area`
+ 				, `type`
+ 				, `price`
+ 			)
+ 			VALUE
+ 			(
+ 				#{realtorId}
+ 				, #{address}
+ 				, #{area}
+ 				, #{type}
+ 				, #{price}
+ 			)
+ 			
+ 	
+ 	</insert>
+ 
+  	<insert id="InsertEstate2" 
+ 	parameterType="map">
+ 		INSERT INTO
+ 				`real_estate`
+ 			(
+ 				`realtorId`
+ 				, `address`
+ 				, `area`
+ 				, `type`
+ 				, `price`
+ 				, `rentPrice`
+ 			)
+ 			VALUE
+ 			(
+ 				#{realtorId}
+ 				, #{address}
+ 				, #{area}
+ 				, #{type}
+ 				, #{price}
+ 				, #{rentPrice}
+ 			)
+ 			
+ 	
+ 	</insert>
+ 	
+ 	
+ 	<update id="updateEstate" parameterType="map">
+    UPDATE `real_estate`
+    SET
+        `Estate` = #{Estate}
+    WHERE
+        `id` = #{id}
+        `type` = #{type}
+        `price` = #{price}
+	</update>
  
  </mapper>

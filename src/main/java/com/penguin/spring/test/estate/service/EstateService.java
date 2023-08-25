@@ -38,4 +38,31 @@ public class EstateService<EstateAreaPrice> {
 		return estateAreaPrice;
 	}
 	
+	// 전달 받은 객체 저장
+	public int addEstate(Estate estate) {
+		
+		int count = estaterspository.InsertEstate1(estate);
+		return count;
+	}
+	
+	
+	
+	// 전달 받은 리뷰 내용 저장 기능
+	public int addRealEstate(int realtorId, String address, int area, String type, int price, int rentPrice) {
+		
+		int count = estaterspository.InsertEstate2(realtorId, address, area, type, price, rentPrice);
+		
+		return count;
+	}
+	
+	
+	public int changeEstate(int id, String type, int price) {
+		
+		int count = estaterspository.updateEstate(id, type, price);
+		
+		return count;
+		
+	}
+	
+	
 }

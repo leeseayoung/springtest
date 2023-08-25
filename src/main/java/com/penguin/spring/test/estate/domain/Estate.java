@@ -9,6 +9,7 @@ public class Estate {
 	private String address;
 	private int area;
 	private String type;
+	private int price;
 	private int rentPrice;
 	private Date createdAt;
 	private Date updatedAt;
@@ -16,6 +17,12 @@ public class Estate {
 	
 	public int getId() {
 		return id;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	public void setId(int id) {
 		this.id = id;
