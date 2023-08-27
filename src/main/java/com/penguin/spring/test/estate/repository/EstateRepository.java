@@ -37,12 +37,17 @@ public interface EstateRepository<EstateAreaPrice> {
 			, @Param("rentPrice") int rentPrice
 			);
 	
+	
 	// update 결과 보기
 	public int updateEstate(
 			@Param("id") int id
-			, @Param("type")String type
-			, @Param("price")int price 
+			, @Param("type") String type
+			, @Param("price") int price 
 			);
 	
+
+	//삭제
+	public int deleteEstate(
+			@Param("id") int id);
 	
 }

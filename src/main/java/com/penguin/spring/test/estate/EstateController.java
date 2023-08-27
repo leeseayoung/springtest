@@ -65,13 +65,27 @@ public class EstateController {
 	
 	
 	// 업데이트
-	@RequestMapping("/slect/6")
+	@RequestMapping("/slecet/6")
 	@ResponseBody
-	public String updateEstate(){
+	//id가 24인
+	public String updateEstate(@RequestParam("id")int id) {
 		
-	int count = estateService.changeEstate(17, "월세", 70000);
+	int count = estateService.changeEstate(id, "전세", 70000);
 		
 		return "입력 성공 : " + count;
 	}
+
+	
+	// 삭제
+	@RequestMapping("/slecet/7")
+	@ResponseBody
+	public String deleteEstate(@RequestParam("id")int id) {
+		int count = estateService.DeleteEstate(id);
+		
+		return "삭제 성공 : " + count;
+		
+	}
+	
+	
 	
 }

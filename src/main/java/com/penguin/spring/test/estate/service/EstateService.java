@@ -55,7 +55,7 @@ public class EstateService<EstateAreaPrice> {
 		return count;
 	}
 	
-	
+	// 업데이트
 	public int changeEstate(int id, String type, int price) {
 		
 		int count = estaterspository.updateEstate(id, type, price);
@@ -64,5 +64,11 @@ public class EstateService<EstateAreaPrice> {
 		
 	}
 	
+	public int DeleteEstate(int id) {
+		 int count = estaterspository.deleteEstate(id);
+		 
+		 return count;
+		 
+	}
 	
 }
