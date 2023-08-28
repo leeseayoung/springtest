@@ -115,20 +115,20 @@
  	
  	</insert>
  	
- 	
+ 											<!-- 파라미터 여러개면 map -->
  	<update id="updateEstate" parameterType="map">
     UPDATE `real_estate`
     SET
 		`type` = #{type}
-        `price` = #{price}
+       , `price` = #{price}
     WHERE
         `id` = #{id}
-
 	</update>
 	
+	
 	<delete id="deleteEstate" parameterType="int">
-    DELETE
-    FROM `real_estate`
+    DELETE FROM 
+    `real_estate`
     WHERE
         `id` = #{id}
 	</delete>
