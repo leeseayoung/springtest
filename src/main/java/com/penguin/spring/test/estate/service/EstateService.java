@@ -65,9 +65,10 @@ public class EstateService<EstateAreaPrice> {
 	}
 	
 	public int DeleteEstate(int id) {
-		 int count = estaterspository.deleteEstate(id);
+		
+		int count = estaterspository.deleteEstate(id);
 		 
-		 return count;
+		return count;
 		 
 	}
 	

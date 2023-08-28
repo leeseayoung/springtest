@@ -70,8 +70,8 @@ public class EstateController {
 	//id가 24인
 	public String updateEstate(@RequestParam("id")int id) {
 		
-	int count = estateService.changeEstate(id, "전세", 70000);
-		
+	int count = estateService.changeEstate(id, "월세", 70000);
+	
 		return "입력 성공 : " + count;
 	}
 
