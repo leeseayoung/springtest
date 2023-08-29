@@ -10,8 +10,8 @@
   		`seller`
 	  	(
 	  		`nickname`
-	  		`profileImage`
-	  		`temperature`
+	  		, `profileImage`
+	  		, `temperature`
 	  	)
 		VALUE
 		(

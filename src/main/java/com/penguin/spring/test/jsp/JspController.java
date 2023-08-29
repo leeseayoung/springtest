@@ -16,7 +16,7 @@ public class JspController {
 	public SellerService sellerService;
 	
 	@ResponseBody
-	@GetMapping("/insert")
+	@GetMapping("/create")
 	public String createSeller(
 			@RequestParam("nickname")String nickname
 			, @RequestParam("profileImage")String profileImage
@@ -25,7 +25,7 @@ public class JspController {
 		
 		int count = sellerService.addSeller(nickname, profileImage, temperature);
 		
-		return "추가 성고 :" + count;
+		return "추가 성공 :" + count;
 		
 		
 		
@@ -34,7 +34,7 @@ public class JspController {
 	@GetMapping("/input")
 	public String inputSeller() {
 		
-		return "jsp/sellerInfo";
+		return "jsp/selleruInput";
 	}
 	
 	
