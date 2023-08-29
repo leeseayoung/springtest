@@ -17,4 +17,11 @@ public interface SellerRepository {
 	
 	public Seller selectLastSeller();
 	
+	
+	
+	//id 조회
+	public Seller selectSeller(@Param("id") int id);
+	
+	
+	
 }

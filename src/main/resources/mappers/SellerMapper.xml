@@ -40,6 +40,26 @@
   		1 		
   </select>	
   
+  <select id= "selectSeller" parameterType="int" 
+  resultType="com.penguin.spring.test.jsp.domain.Seller">
+  	 
+  	SELECT
+  		`id`
+  		, `nickname`
+  		, `profileImage`
+  		, `temperature`
+  		, `createdAT`
+  		, `updatedAT`
+  	FROM
+  		`seller`
+  	WHERE 
+  		`id` = #{id}
+  			
+  
+  
+  </select>
+  
+  
   
   
   </mapper>

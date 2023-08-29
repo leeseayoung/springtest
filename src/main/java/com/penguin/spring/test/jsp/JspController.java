@@ -53,4 +53,32 @@ public class JspController {
 	}
 	
 	
+	
+	@GetMapping("/info")					//벨류, false 생략이되었슴 null이 불가능 int는
+	public String sellerInfo(@RequestParam(value="id", required=false) Integer id
+			, Model model) {
+		//이건 옵션 중복 코드가 없는게 유지보수에 좋음
+		Seller seller = null;
+		// id 파라미터가 있으면, id가 일치하는 판매자 정보
+		if(id != null) {
+			seller = sellerService.getSeller(id);
+			
+			
+			
+			model.addAttribute("seller", seller);
+		} else {// id 파라미터가 없으면, 최근 등록된 판매자 정보
+			
+			seller = sellerService.getLastSeller();
+			model.addAttribute("seller" , seller);
+
+		}
+		
+
+		return "jsp/sellerInfo";
+	}
+	
+	
+	
+	
+	
 }
