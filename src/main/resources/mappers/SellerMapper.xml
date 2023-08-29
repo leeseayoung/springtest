@@ -16,11 +16,29 @@
 		VALUE
 		(
 			#{nickname}
-			, # {profileImage}
-			, # {temperature}
+			, #{profileImage}
+			, #{temperature}
 		)  
   
   </insert>
+  
+  <select id="selectLastSeller"
+  resultType="com.penguin.spring.test.jsp.domain.Seller">
+  
+  	SELECT
+  		`id`
+  		, `nickname`
+  		, `profileImage`
+  		, `temperature`
+  		, `createdAT`
+  		, `updatedAT`
+  	FROM
+  		`seller`
+  	ORDER BY
+  		`id` DESC
+  	LIMIT
+  		1 		
+  </select>	
   
   
   
