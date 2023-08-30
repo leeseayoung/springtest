@@ -4,20 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.penguin.spring.test.realtor.domain.Realtor;
 import com.penguin.spring.test.realtor.service.RealtorService;
-
+@RequestMapping("/jsp/realtor")
 @Controller
 public class RealtorController {
 
+	//전달된 공인중개사 정보를 저장하고, 결과를 태그로 구성해서 response에 담는다
 	@Autowired
 	private RealtorService realtorService;
 	
-	@GetMapping("/jsp/test/create")
-	@ResponseBody
+	@GetMapping("/create")
+	
 	public String createRealtor(
 			@RequestParam("office") String office
 			, @RequestParam("phoneNumber") String phoneNumber
@@ -41,7 +43,7 @@ public class RealtorController {
 	
 	}
 	
-	@GetMapping("/jsp/test/input")
+	@GetMapping("/input")
 	public String inputRealotr() {
 		
 		return "jsp/realtorInput";
