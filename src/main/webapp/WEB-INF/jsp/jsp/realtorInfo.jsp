@@ -10,11 +10,11 @@
 
 	<h1>공인중개사 정보</h1>
 	
-	<h3>ID : </h3>
-	<h3>상호명 : </h3><hr>
-	<h3>전화번호 : </h3><hr>
-	<h3>주소 : </h3><hr>
-	<h3>등급 : </h3><hr>
+	<h3>ID : ${realtor.id}</h3>
+	<h3>상호명 : ${realtor.office}</h3><hr>
+	<h3>전화번호 : ${realtor.phoneNumber}</h3><hr>
+	<h3>주소 :  ${realtor.address}</h3><hr>
+	<h3>등급 :  ${realtor.grade}</h3><hr>
 	
 </body>
 </html>

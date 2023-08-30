@@ -38,11 +38,14 @@ public class RealtorController {
 		
 		return "jsp/realtorInfo";
 		
-		
-	
 	
 	}
 	
+	@GetMapping("/jsp/test/input")
+	public String inputRealotr() {
+		
+		return "jsp/realtorInput";
+	}
 	
 	
 }

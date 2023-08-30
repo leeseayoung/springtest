@@ -8,11 +8,12 @@ import com.penguin.spring.test.realtor.domain.Realtor;
 public interface RealtorRepository {
 
 	
+
 	
 	public int insertRealtorByObject(Realtor realtor);
 
 
-
+	public Realtor selectLastRealtor();
 
 
 }

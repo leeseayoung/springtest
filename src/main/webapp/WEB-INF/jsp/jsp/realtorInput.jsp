@@ -8,13 +8,14 @@
 </head>
 <body>
 
-	<h1>공인중개사 추가</h1>
-	<label>상호명</label><br><input type="text">
-	<label>전화번호</label><br><input type="text">
-	<label>주소</label><br><input type="text">
-	<label>등급</label><br><input type="text"><br>
-	<button type="button">추가</button>
-
+	<form method="get" action="/jsp/test/create" >
+		<h1>공인중개사 추가</h1>
+		<label>상호명</label><br><input type="text">
+		<label>전화번호</label><br><input type="text">
+		<label>주소</label><br><input type="text">
+		<label>등급</label><br><input type="text"><br>
+		<button type="submit">추가</button>
+	</form>
 
 </body>
 </html>
