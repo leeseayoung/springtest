@@ -57,14 +57,17 @@
 				<td>${member.name}</td>
 				<td>${member.phoneNumber}</td>
 					
-					
+			<%--
+			
+			
+			
 			<c:choose>
 				<c:when test="${member.geade eq `VIP`}" >
 					<td class="text-danger">${member.grade }</td>
 				</c:when>
 			
 				<c:when test="${member.geade eq `GOLD`}" >
-					<td class="text-warning">${member.grade }</td>
+					<td class="text-warning">${member.grade}</td>
 				
 				</c:when>
 				<c:otherwise>
@@ -82,6 +85,7 @@
 					<td>${member.point}p</td>
 				</c:otherwise>
 			</c:choose>		
+			 --%>		
 
 			</tr>
 		</c:forEach>

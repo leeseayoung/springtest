@@ -78,11 +78,7 @@ public class JSTLController {
 		
 		model.addAttribute("member" , membership);
 		
-		
-		
-		
-		
-		
+	
 		
 		
 		return "/jstl/jstlTest02";
@@ -108,6 +104,11 @@ public class JSTLController {
 		candidates.add(563057); 
 		
 		model.addAttribute("candidates", candidates);
+		
+		
+		
+		
+		
 		
 		
 		List<Map<String, Object>> cardBills = new ArrayList<>();
@@ -138,19 +139,7 @@ public class JSTLController {
 		model.addAttribute("cardBill", cardBill);
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		return "jstl/jstlTest03";
 		

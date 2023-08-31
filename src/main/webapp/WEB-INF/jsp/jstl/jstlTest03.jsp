@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>       
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,13 +50,21 @@
 		</thead>
 		
 		<tbody>
-		<c:forEach var=
+			<c:forEach var="card" items="${cardBill}" varStatus="status">
+
 			<tr>
-				<td>gs25</td>
-				<td>$7,000</td>
-				<td>2025년9월15일</td>
-				<td>일시불</td>
+				<td>${card.store}</td>
+				<td>${card.pay}</td>
+				
+				
+				<td><fmt:formatDate value="${card.date}" pattern="yyyy년 MM월 dd일"/></td>
+				<td><fmt:formatNumber value="${card.installment}" type="currency" currencySymbol="$"/></td>
+				
+				
+
 			</tr>
+			
+			</c:forEach>
 		</tbody>
 	
 	
