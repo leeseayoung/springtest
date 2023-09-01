@@ -49,18 +49,21 @@
 			</tr>
 		</thead>
 		
-		<tbody>
-			<c:forEach var="card" items="${cardBill}" varStatus="status">
+		<tbody>				<%--변수 --%>
+			<c:forEach var="cardBill" items="${cardBillList}" >
 
 			<tr>
-				<td>${card.store}</td>
-				<td>${card.pay}</td>
+				<td>${cardBill.store}</td>
+				
+				<td><fmt:formatNumber value="${cardBill.pay}" type="currency" currencySymbol="$"/></td>
 				
 				
-				<td><fmt:formatDate value="${card.date}" pattern="yyyy년 MM월 dd일"/></td>
-				<td><fmt:formatNumber value="${card.installment}" type="currency" currencySymbol="$"/></td>
+				<fmt:parseDate value="${cardBill.date}" pattern="yyyy-MM-dd" var="date"/>
 				
+				<%-- 연습  --%>
+				<td><fmt:formatDate value="${date}" pattern="yyyy년 M월 d일 "/></td>
 				
+				<td>${cardBill.installment}</td>
 
 			</tr>
 			
