@@ -1,16 +1,26 @@
 package com.penguin.spring.test.weather.domain;
 
+import java.util.Date;
+
 public class Weather {
 
-	
+	private int id;
 	private String date;
 	private String weather;
 	private double temperatures;
 	private double precipitation;
 	private String microDust;
 	private double windSpeed;
+	private Date createdAT;
+	private Date updatedAT;
 	
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getDate() {
 		return date;
 	}

@@ -1,9 +1,13 @@
 package com.penguin.spring.test.weather;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.penguin.spring.test.weather.Service.WeatherService;
 import com.penguin.spring.test.weather.domain.Weather;
@@ -16,11 +20,12 @@ public class WeatherController {
 	@Autowired
 	private WeatherService weatherService;
 	
-	@GetMapping("/weather/test")
-	public <List>String weather() {
+	@GetMapping("/weather/lest")
+	public String weather(Model model) {
 		
-		Weather weather = weatherService.getWeather();	
+	 List<Weather> weatherHistory = weatherService.getWeatherHistory();	
 		
+	 model.addAttribute("WeatherHistory", weatherHistory);
 		
 		return "jstl/weather";
 		
@@ -171,6 +176,36 @@ public class WeatherController {
 
 		
 	}
+	// 컨트롤러 -> 서비스 -> 래파스토리 -> xml(쿼리) -> 서비스 -> 컨트롤러 -> -> -> -> -> ->
+	//@ResponseBody
+	
+	@GetMapping("/weather/create")
+	public String createWeather(
+			//날짜 변경법
+			// 2023년09월04일 자바한테 알려죠야됨 @DateTimeFormat(pattern="yyyy년MM월dd일") @RequestParam("date") Date date
+			@RequestParam("date") String date
+			,@RequestParam("weather") String weather
+			,@RequestParam("temperatures") double temperatures
+			,@RequestParam("precipitation") double precipitation
+			,@RequestParam("microDust") String microDust
+			,@RequestParam("windSpeed") double windSpeed) {
+		
+		
+		int count = weatherService.addWeather(date, weather, temperatures, precipitation, microDust, windSpeed);
+		
+		//밑에 문자열을 출력할려면 리스폰스바디 죠야됨
+		
+		
+		
+		return  "redirect:/weather/lest";
+	}
+
+	
+	
+	
+
+	
+	
 	
 	@GetMapping("weather/input")
 	public String input() {

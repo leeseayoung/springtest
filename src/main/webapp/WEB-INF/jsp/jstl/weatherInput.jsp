@@ -23,10 +23,14 @@
 	                </nav>				
 					<div>
 					<h1 class="mt-3 ml-5" >날씨 입력</h1>
+						
+						<form method="get" action="/weather/create">
+						
 						<div clapp="d-flex">
-							<label>날짜</label><input type="text">
+							
+							<label>날짜</label><input type="text" name="date">
 							<label>날씨</label>
-							<select>
+							<select name="weather">
 					            <option>--날씨선택--</option>
 					            <option>맑음</option>
 					            <option>구름조금</option>
@@ -35,34 +39,39 @@
 					       </select>
 							
 						  <label>미세먼지</label>
-						  <select>
+						  <select name="microDust">
 					            <option>--미세먼지선택--</option>
-					            <option>보통</option>
-					            <option>좋음</option>
-					            <option>나쁨</option>
+					            <option >보통</option>
+					            <option >좋음</option>
+					            <option >나쁨</option>
+					            <option >최악</option>
 					      </select>
 					
 						</div>
+						
+						
 						<div class="mt-3 d-flex" >
 							<div class="input-group mb-3">
-								  <label class="text-center">기온</label><input type="text" >
-								  <span class="input-group-text" >℃</span>
+								  <label class="text-center">기온</label><input type="text" name="temperatures" >
+								  <span class="input-group-text">℃</span>
 							</div>
 							
 							<div class="input-group mb-3">
-								  <label class="text-center">기온</label><input type="text" >
+								  <label class="text-center">강수량</label><input type="text" name="precipitation" >
 								  <span class="input-group-text">mm</span>
 							</div>		
 						
 						
 							<div class="input-group mb-3">
-								  <label class="text-center">기온</label><input type="text" >
+								  <label class="text-center">풍속</label><input type="text" name="windSpeed">
 								  <span class="input-group-text">km/h</span>
 							</div>		
 						</div>						
 						<div class="d-flex justify-content-end">
-                            <button class="btn btn-success mt-3 mr-5">저장</button>
+                            <button class="btn btn-success mt-3 mr-5" type="submit">저장</button>
                         </div>
+                        </form>
+					
 					</div>
 			
 					

@@ -25,8 +25,8 @@
 	                <nav class="main-menu col-2 p-0 bg-info w-25" >
 	                    <ul class="nav flex-column ">
 	                     	<li class="nav-item menu-item"><a href="#" class="nav-link text-white text-center font-weight-bold"> <img src="https://www.job-post.co.kr/news/photo/202205/52730_52696_1440.jpg" width="50" alt="기상청 이미지"> 기상청</a></li>
-	                        <li class="nav-item menu-item"><a href="#" class="nav-link text-white font-weight-bold">날씨</a></li>
-	                        <li class="nav-item menu-item"><a href="#" class="nav-link text-white font-weight-bold">날씨입력</a></li>
+	                        <li class="nav-item menu-item"><a href="http://localhost:8080/weather/lest" class="nav-link text-white font-weight-bold">날씨</a></li>
+	                        <li class="nav-item menu-item"><a href="http://localhost:8080/weather/input" class="nav-link text-white font-weight-bold">날씨입력</a></li>
 	                        <li class="nav-item menu-item"><a href="#" class="nav-link text-white font-weight-bold">테마날씨</a></li>
 	                        <li class="nav-item menu-item"><a href="#" class="nav-link text-white font-weight-bold">관측 기후</a></li>
 	                    </ul>
@@ -47,15 +47,49 @@
 							</tr>						
 						</thead>
 						<tbody>
-							<!-- 
-							<c:forEach var="weather" items="${weatherList}"  >
-							</c:forEach>
-							 -->
+							
+							<c:forEach var="weather" items="${WeatherHistory}"  >
+			
 							<tr>
-								<td>${weather.date}</td>
+							
+								<td>
+									${weather.date}
 
+								</td>
+								
+								<td>
+								<c:choose>
+									<c:when test="${weather.weather eq '맑음'}">
+									<img src="http://marondal.com/material/images/dulumary/web/jstl/sunny.jpg">
+									</c:when>
+									<c:when test="${weather.weather eq '구름조금'}">
+									<img src="http://marondal.com/material/images/dulumary/web/jstl/partlyCloudy.jpg">
+									</c:when>
+									<c:when test="${weather.weather eq '흐림'}">
+									<img src="http://marondal.com/material/images/dulumary/web/jstl/cloudy.jpg">
+									</c:when>
+									<c:when test="${weather.weather eq '비'}">
+									<img src="http://marondal.com/material/images/dulumary/web/jstl/rainy.jpg">
+									</c:when>
+									<c:otherwise>
+										${weather.weather}
+									</c:otherwise>
+								</c:choose>
+								
+								</td>
+								
+								
+								
+								<td>${weather.temperatures}℃</td>
+								<td>${weather.precipitation}mm</td>
+								<td>${weather.microDust}</td>
+								<td>${weather.windSpeed}km/h</td>
+								
+								
+						
 							</tr>
 							
+							</c:forEach>
 						</tbody>
 						
 					</table>
