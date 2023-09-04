@@ -2,14 +2,11 @@
 
 #wrap{
 	width: 1200px
-
-}
-
-menu {
 	
-	height: 800px
+	
+
 }
 
-div {
-	height: 100px
+.contents {
+	height: 1200px
 }

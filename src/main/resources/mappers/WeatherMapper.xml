@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+ <mapper namespace="com.penguin.spring.test.weather.Repository.WeatherRepository">
+ 	<select id="selectWeather" resultType="com.hagulu.spring.lesson03.model.RealEstate">
+ 		SELECT 
+ 			`id`
+ 			, `date`
+ 			, `weather`
+ 			, `temperature`
+ 			, `precipitation`
+ 			, `microDust`
+ 			, `windSpeed`
+ 			, `createdAT`
+ 			, `updatedAT`
+ 		FROM
+ 			`weatherhistory`
+ 
+ 
+ 		</select>
+ </mapper>
