@@ -26,6 +26,6 @@ public interface WeatherRepository {
 			
 			);
 	
-	
+	public int insertWeatherByObject(Weather weather);
 	
 }

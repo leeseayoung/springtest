@@ -36,7 +36,11 @@ public class WeatherService {
 	}
 	
 	
-	
+	public int addWeather1(Weather weather) {
+		int count = weatherRepository.insertWeatherByObject(weather);
+		
+		return count;
+	}
 	
 	
 }

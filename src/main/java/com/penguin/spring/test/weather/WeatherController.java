@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.penguin.spring.test.weather.Service.WeatherService;
 import com.penguin.spring.test.weather.domain.Weather;
@@ -183,18 +182,22 @@ public class WeatherController {
 	public String createWeather(
 			//날짜 변경법
 			// 2023년09월04일 자바한테 알려죠야됨 @DateTimeFormat(pattern="yyyy년MM월dd일") @RequestParam("date") Date date
-			@RequestParam("date") String date
-			,@RequestParam("weather") String weather
-			,@RequestParam("temperatures") double temperatures
-			,@RequestParam("precipitation") double precipitation
-			,@RequestParam("microDust") String microDust
-			,@RequestParam("windSpeed") double windSpeed) {
+//			@RequestParam("date") String date
+//			,@RequestParam("weather") String weather
+//			,@RequestParam("temperatures") double temperatures
+//			,@RequestParam("precipitation") double precipitation
+//			,@RequestParam("microDust") String microDust
+//			,@RequestParam("windSpeed") double windSpeed
+			//도메인 에서 정보를 받아 쓸수있다
+			@ModelAttribute Weather weather
+			) {
 		
 		
-		int count = weatherService.addWeather(date, weather, temperatures, precipitation, microDust, windSpeed);
+//		int count = weatherService.addWeather(date, weather, temperatures, precipitation, microDust, windSpeed);
 		
 		//밑에 문자열을 출력할려면 리스폰스바디 죠야됨
 		
+		int count = weatherService.addWeather1(weather);
 		
 		
 		return  "redirect:/weather/lest";

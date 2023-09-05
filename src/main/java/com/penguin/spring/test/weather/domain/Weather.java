@@ -2,10 +2,13 @@ package com.penguin.spring.test.weather.domain;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Weather {
 
 	private int id;
-	private String date;
+	@DateTimeFormat(pattern="yyyy년MM월dd일")
+	private Date date;
 	private String weather;
 	private double temperatures;
 	private double precipitation;
@@ -13,18 +16,16 @@ public class Weather {
 	private double windSpeed;
 	private Date createdAT;
 	private Date updatedAT;
-	
-	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public String getWeather() {
@@ -57,6 +58,21 @@ public class Weather {
 	public void setWindSpeed(double windSpeed) {
 		this.windSpeed = windSpeed;
 	}
+	public Date getCreatedAT() {
+		return createdAT;
+	}
+	public void setCreatedAT(Date createdAT) {
+		this.createdAT = createdAT;
+	}
+	public Date getUpdatedAT() {
+		return updatedAT;
+	}
+	public void setUpdatedAT(Date updatedAT) {
+		this.updatedAT = updatedAT;
+	}
+	
+	
+
 	
 	
 	
