@@ -24,15 +24,14 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach var="url" items="${urlList}" varStatus="status">
-		
-			<tr>
-				<td>${status.count}</td>
-				<td>${url.name}</td>
-				<td>${url.url}</td>
-
+			<c:forEach var="url" items="${urlList}" varStatus="status">
+			
+				<tr>
+					<td>${url.id}</td>
+					<td>${url.name}</td>
+					<td>${url.url}</td>
+				</tr>
 				
-			</tr>
 			</c:forEach>
 		</tbody>
 	</table>

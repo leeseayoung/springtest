@@ -2,22 +2,62 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+ 					<!-- 해당하는 인터페이스 래파스토리 만들고 다음 mapper만듬 -->
  <mapper namespace="com.penguin.spring.test.url.rpository.UrlRepository">
 
-				
- 	<select id="selectUrlList" 
+				<!-- 한행을 저장할때  밑에 타입 앤티티 로 하는거 --> <!-- 밑에 업데이트 틀림 -->
+ 	<select id="selectUrlList"  
+ 	
  	resultType="com.penguin.spring.test.url.domain.Url">
  	 	SELECT
  			`id`
  			, `name`
  			, `url`
- 			, `createdAt`
- 			, `updateAt`
+ 			, `createdAT`
+ 			, `updateAT`
 
  		FROM
  			`url_date`
  	
  	</select>
+ 	
+ 	<insert id="insertUrl" parameterType= "map">
+ 	INSERT INTO 
+  		`url_date`
+	  	(
+ 			 `name`
+ 			, `url`
+
+
+	  	)
+		VALUE
+		(
+			#{name}
+			, #{url}
+
+		)  
+  
+ 	
+ 	</insert>
+ 	
+ 	
+ 	<!-- 9월 6일 수업  url 문자열(파리미터 타입)   -->
+ 	<select id="selectCountUrl" parameterType="string"
+ 	resultType="int">
+ 		SELECT
+ 			count(1)
+ 		FROM
+ 		 	`url_date`	
+ 		WHERE
+ 			`url` = #{url}
+ 	
+ 	</select>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
  	
  	</mapper>

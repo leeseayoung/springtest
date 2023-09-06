@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,6 +22,7 @@ public class UrlController {
 	@Autowired
 	private UrlService urlService;
 	
+	
 	//input
 	@GetMapping("/input")
 	public String urlInput() {
@@ -30,6 +32,8 @@ public class UrlController {
 	
 	
 
+	
+	
 	
 	//리스트
 	@GetMapping("/list")
@@ -43,13 +47,25 @@ public class UrlController {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	//전달 받은걸 저장 기능 페이지
 	@ResponseBody
-	@GetMapping("/create")
+	// 보안,너무 길면 post
+	@PostMapping("/create")
 	public Map<String, String> createUrl(
 			@RequestParam("name")String name
 			, @RequestParam("url")String url
 			){
 		int count = urlService.addUrl(name, url);
+		
+		// 데이터를 담는 api  
+		// 성공 : {"result", "sucess"}
+		// 실패 : {"result", "fail"}
 		
 		Map<String, String> resultMap = new HashMap<>();
 		if(count == 1) {//성공
@@ -64,9 +80,31 @@ public class UrlController {
 	}
 	
 	
-	
-	
-	
+
+	//9월6일 수업 
+	@ResponseBody
+	@GetMapping("/duplicate-url")
+	public Map<String, Boolean> isDuplicateUrl(
+			@RequestParam("url")String url) {
+		
+		boolean isDuplicate = urlService.isDuplicateUrl(url);
+		
+		 // 중복됨 : ("isDuplicate" : true)
+		 //	중복 안됨 : ("isDuplicate" : false)
+		
+		Map<String ,Boolean>resultMap = new HashMap<>();
+		
+		if(isDuplicate) {
+			//중복
+			resultMap.put("isDuplicate", true);
+		} else {
+			//중복 안됨
+			resultMap.put("isDuplicate", false);
+		}
+		
+		
+		return resultMap;
+	}
 	
 	
 	
