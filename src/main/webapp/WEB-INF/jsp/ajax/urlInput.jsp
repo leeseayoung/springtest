@@ -15,16 +15,34 @@
 		<div>
 			<label>제목</label><br>
 			<input type="text" class="form-control mt-1" id="nameInput"><br>
-				<label>주소</label><br>
-			<div class="d-flex justify-content-end">
-				<input type="text" class="form-control mt-1" id="urlInput"><button type="button"  class="btn btn-info" id="duplicateBtn">중복 확인</button><br>
-			</div>
-		</div>
-	 	<div class="d-flex justify-content-end mt-3">
-	       <button type="button" class="btn btn-success" id="addBtn">조회</button>
-	    </div>
 	
-	<!-- 여기 지금 문제 -->
+			<label>주소</label><br>
+			<div class="d-flex justify-content-end">
+	
+				<input type="text" class="form-control mt-1" id="urlInput">
+		
+				<button type="button"  class="btn btn-info ml-3" id="duplicateBtn">중복 확인</button><br>
+			</div>
+			
+			<!-- span을 이용 불가능할때 -->
+			<span id="faileMessage"class="text-danger"></span>
+			
+			<!-- 가능할때 -->
+			<span id="successMessage" class="text-success"></span>
+			
+		</div>
+	 	
+	 	
+	 	
+	 	
+	 	<div class="d-flex justify-content-end mt-3">
+	       <button type="button" class="btn btn-success" id="addBtn">추가</button>
+	    </div>
+	    
+	    
+
+	
+	
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	
@@ -56,9 +74,11 @@
 						
 						if(data.isDuplicate) {
 							//중복이면
-							alert("중복된 url 입니다!")
+							//alert("중복된 url 입니다!")
+							$("#faileMessage").text("중복된 URL 입니다.");
 						} else {
-							alert("저장 가능한 url 입니다.")
+							//alert("저장 가능한 url 입니다.")
+							$("#successMessage").text("저장 가능한 URL 입니다.");
 						}
 						
 					}
