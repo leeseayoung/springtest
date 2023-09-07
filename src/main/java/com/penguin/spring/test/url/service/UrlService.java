@@ -57,7 +57,14 @@ public class UrlService {
 
 
 
-
+	//7일
+	public int deleteUrl(int id) {
+		
+		int count = urlRepository.deleteUrl(id);
+		
+		return count;
+		
+	}
 
 
 

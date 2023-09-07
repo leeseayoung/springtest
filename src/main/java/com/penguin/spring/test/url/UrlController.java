@@ -81,7 +81,7 @@ public class UrlController {
 	
 	
 
-	//9월6일 수업 
+	//9월6일 수업 post 
 	@ResponseBody
 	@GetMapping("/duplicate-url")
 	public Map<String, Boolean> isDuplicateUrl(
@@ -104,6 +104,33 @@ public class UrlController {
 		
 		
 		return resultMap;
+	}
+	
+	
+	//삭제 기능 7일 기능 api
+	@ResponseBody
+	@GetMapping("/delete")
+	public Map<String, String> deleteUrl(@RequestParam("id")int id) {
+		
+		int count = urlService.deleteUrl(id);
+		
+		//json 
+		// 성공 : {"result": "success"}
+		// 실패 : {"result": "fail"}
+		
+		Map<String, String> resulrtMap = new HashMap<>();
+		if(count == 1) {
+			// 성공
+			resulrtMap.put("result", "success");
+			
+		} else {
+			// 실패
+			resulrtMap.put("result", "fail");
+			
+		}
+	
+		return resulrtMap;
+		
 	}
 	
 	

@@ -55,7 +55,12 @@
  	
  	
  	
- 	
+ 	<delete id="deleteUrl" parameterType="int">
+	 	DELETE FROM 
+	 		`url_date` 
+	 	WHERE 
+	 		`id` = #{id}
+ 	</delete>
  	
  	
  	

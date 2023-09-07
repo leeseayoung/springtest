@@ -22,9 +22,10 @@
 				<input type="text" class="form-control mt-1" id="urlInput">
 		
 				<button type="button"  class="btn btn-info ml-3" id="duplicateBtn">중복 확인</button><br>
+				<div></div>
 			</div>
 			
-			<!-- span을 이용 불가능할때 -->
+			<!-- span을 이용 불가능할때 태그  -->
 			<span id="faileMessage"class="text-danger"></span>
 			
 			<!-- 가능할때 -->
@@ -54,9 +55,26 @@
 	
 	<script>
 		$(document).ready(function() {
-	
-			//9월 6일 수업 
+			
+			//간접적으로 중복 체크 확인 (7일 수업!)
+			var isDuplicateCheck = false;
+			
+			// 중복상태 
+			var isDuplicateUrl = true;
+		
+			//여기다가 사라지는 기능 넣어야됨
+			
+			
+			//초기화 상태로 다시 원점으로 돌아오는 기능
+			$("#urlInput").on("input", function () {
+				//중복체크 확인, 중복상태 변수 값을 초기화
+				isDuplicateCheck = false;
+				isDuplicateUrl = true;
+			});
+			
+			//9월 6일 수업  7일 수업
 			$("#duplicateBtn").on("click", function() {
+				
 				 let url = $("#urlInput").val();
 				
 				 
@@ -65,20 +83,32 @@
 						return ;
 				}
 				 
+				if(!url.startsWith("http://") && !url.startsWith("https://")) {
+					alert("주소형식을 확인해 주세요!")
+					return ;
+				}
+				
+				
 				$.ajax({
 					
 					type:"get"
 					, url:"/ajax/url/duplicate-url"
 					, data:{"url":url}
 					, success:function(data) {
+						isDuplicateCheck = true;
 						
 						if(data.isDuplicate) {
 							//중복이면
+							isDuplicateUrl = true;
 							//alert("중복된 url 입니다!")
+							
 							$("#faileMessage").text("중복된 URL 입니다.");
+							
 						} else {
+							isDuplicateUrl = false;
 							//alert("저장 가능한 url 입니다.")
 							$("#successMessage").text("저장 가능한 URL 입니다.");
+							
 						}
 						
 					}
@@ -131,6 +161,35 @@
 				
 				
 				
+				
+				
+				//중복확인 안된 상태
+				if(!isDuplicateCheck) {
+					alert("url 중복체크를 해주세요")
+					return ;
+				}
+				
+				
+				
+				// 중복된 url 일때
+				if(isDuplicateUrl) {
+					alert("중복된 url입니다")
+					return ;
+				}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				$.ajax({
 					type:"post"
 					, url:"/ajax/url/create"
@@ -140,14 +199,14 @@
 					// 성공 : {"result : success}
 					// 실패 : {"result : fail"}
 					
-					if(data.result == "success") {
-						// 성공
-						// 리스트 페이지로 이동
-						location.href="/ajax/url/list";
-					} else {
-						// 실패
-						alert("추가 실패!!!");
-					  }
+						if(data.result == "success") {
+							// 성공
+							// 리스트 페이지로 이동
+							location.href="/ajax/url/list";
+						} else {
+							// 실패
+							alert("추가 실패!!!");
+						  }
 					
 						
 					} 

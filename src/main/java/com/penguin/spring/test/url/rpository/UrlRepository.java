@@ -16,6 +16,8 @@ public interface UrlRepository {
 	
 	
 	
+	
+	
 	//추가 하는거                틀림 = insert 추가 안했음
 	public int insertUrl(
 			@Param("name") String name
@@ -27,5 +29,8 @@ public interface UrlRepository {
 			@Param("url") String url);
 		
 
+	
+	public int deleteUrl(
+			@Param("id") int id);
 	
 }
