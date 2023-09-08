@@ -1,5 +1,6 @@
 package com.penguin.spring.test.booking.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,44 @@ public class BookingService {
 	}
 	
 	
-	public int deleteBooking(String name) {
+	
+	//삭제 기능
+	public int deleteBooking(int id) {
 		
-		int count = bookingRepository.deleteBooking(name);
+		int count = bookingRepository.deleteBooking(id);
 		
 		return count;
 	}
 	
+	
+	
+	
+	//추가 기능
+	public int addBooking(
+			String name
+			, Date date
+			, int day
+			, int headcount
+			, String phonenumber) {
+			
+		
+																					// input에 없는데 추가 해야하면 이렇게 임시로 넣어두됨
+			int count =	bookingRepository.insertBooking(name, date, day, headcount, phonenumber, "대기중");
+	
+			return count;
+	}
+	
+	
+	
+	
+	// 조회 기능 (8일)
+	
+	public Booking getBooking1(String name, String phonenumber) {
+		
+		Booking booking = bookingRepository.selectBooking(name, phonenumber);
+		
+		return booking;
+	}
 	
 	
 	

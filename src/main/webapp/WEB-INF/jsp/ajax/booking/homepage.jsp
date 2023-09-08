@@ -37,41 +37,22 @@
 	                    <div class="m-4">
 	                        <div class="d-flex align-items-end">
 	                            <h3 class="mr-4">예약 확인</h3>
-	                        
-	                            <label>회원
-	                            <input type="radio" name="type" value='member' checked></label>
-	                            <label class="ml-3">비 회원
-	                            <input type="radio" name="type" value="nonMemeber"></label>
 	                        </div>
 	                        <div class="member-input mt-3" id="member">
 	                            <div class="input-gorup form-inline">
-	                                <label class="input-label">아이디 :</label>
-	                                <input type="text" class="form-control text-input" id="id">
-	                            </div>
-	                            <div class="input-gorup form-inline mt-3">
-	                                <label class="input-label">비밀번호 :</label>
-	                                <input type="password" class="form-control text-input" id="password">
-	                            </div>
-	
-	                        </div>
-	
-	                        <div class="no-member-input mt-3 d-none" id="nonMember">
-	                            <div class="input-gorup form-inline">
-	                                <label class="input-label">이름 </label>
+	                                <label class="input-label">이름 :</label>
 	                                <input type="text" class="form-control text-input" id="name">
 	                            </div>
 	                            <div class="input-gorup form-inline mt-3">
-	                                <label class="input-label">전화번호 </label>
+	                                <label class="input-label">전화번호 :</label>
 	                                <input type="text" class="form-control text-input" id="phoneNumber">
-	                            </div>
-	                            <div class="input-gorup form-inline mt-3">
-	                                <label class="input-label">날짜 </label>
-	                                <input type="text" class="form-control text-input" id="date">
 	                            </div>
 	
 	                        </div>
+	
+	                 
 	                        <div class="d-flex justify-content-end">
-	                            <button class="btn btn-success mt-3 mr-5" id="lookupBtn">조회 하기</button>
+	                            <button class="btn btn-success mt-3 mr-5" id="findBtn">조회 하기</button>
 	                        </div>
 	                    </div>
 	                </article>
@@ -103,6 +84,79 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	
+	
+	
+	
+	
+	<script>
+	
+		$(documeny).ready(function() {
+			
+			$("#findBtn").on("click", function() {
+				alert("안녕")
+				let name =  ("#name").val();
+				let phonenumber =  ("#phoneNumber").val();
+				
+				
+				if(name == ""){
+					alert("이름을 입력하세요");
+						return ;
+				}
+				
+				if(phonenumber == ""){
+					alert("전화번호를 입력하세요");
+						return ;
+				}
+			
+			
+				$.ajax({
+					
+					type:"get"
+					, url:"/booking/search"
+					, data{"name":name, "phonenumber":phonenumber}
+					, success:function(data) {
+						
+						if(data == ""){
+							
+							alert("조회 결과가 없습니다!")
+						} else {
+							
+						alert("이름": + data.name  + "\n"
+								+"날짜" + data.date.substring(0, 10) + "\n"
+								+"일수" + data.day + "\n"
+								+"인원" + data.headcount + "\n"
+								+"상태" + data.state);		
+						}
+						
+						
+					}
+					, error:function() {
+						
+						alert("조회 에러")
+					}
+				});
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			});
+			
+			
+		});
+		
+	
+	</script>
+	
+	
+	
+	
+	
+	
 	
 </body>
 </html>

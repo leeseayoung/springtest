@@ -44,19 +44,21 @@
 								<td><fmt:formatDate value="${booking.date}" pattern="yyyy년 M월 d일 "/></td>
 								<td>${booking.day}</td>
 								<td>${booking.headcount}</td>
-								<td>${booking.PHONEnUMBER}</td>
+								<td>${booking.phonenumber}</td>
 								
 								<c:choose>
 									<c:when test="${booking.state eq '대기중'}">
-										<td class="text-info">${booking.state}</td>
-									
+										<td class="text-info">${booking.state}</td>			
+									</c:when>
+									<c:when test="${booking.state eq '취소'}">
+										<td class="text-danger">${booking.state}</td>
 									</c:when>
 									<c:otherwise>
 										<td class="text-success">${booking.state}</td>
 									</c:otherwise>
 								</c:choose>
 								
-								<td><button type="button" data-booking-name ="${booking.name}" class="btn btn-danger btn-sm delete-btn">삭제</button></td>
+								<td><button type="button" data-booking-id ="${booking.id}" class="btn btn-danger btn-sm delete-btn" id="deleteBtn">삭제</button></td>
 							
 							</tr>
 						</c:forEach>
@@ -82,13 +84,13 @@
 			
 			$(".delete-btn").on("click", function() {
 				
-				let name = $(this).data("booking-name")
+				let id = $(this).data("booking-id")
 				
 				$.ajax({
 					
 					type:"get"
 					, url:"/booking/delete"
-					, data:{"name":name}
+					, data:{"id":id}
 					, success:function(data) {
 						// 성공 : {"result": "success"}
 						// 실패 : {"result": "fail"}

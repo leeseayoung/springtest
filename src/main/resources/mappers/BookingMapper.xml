@@ -14,22 +14,100 @@
  			, `headcount`
  			, `day`
  			, `date`
- 			, `PHONEnUMBER`
+ 			, `phonenumber`
  			, `state`
  			, `createdAT`
  			, `updatedAT`
  		FROM	
  			`booking`
+ 		ORDER BY
+ 			`id` DESC	
  	
  	</select>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  	<!-- 삭제 기능 -->
   	<delete id="deleteBooking" parameterType="int">
 	 	DELETE FROM 
 	 		`booking` 
 	 	WHERE 
-	 		`name` = #{name}
+	 		`id` = #{id}
  	</delete>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	<insert id="insertBooking" parameterType="map" >
+ 		INSERT INTO
+ 			`booking`
+	 			(
+		 			 `name`
+		 			, `headcount`
+		 			, `day`
+		 			, `date`
+		 			, `phonenumber`
+		 			, `state`
+	 			)
+ 		VALUE
+ 		(
+ 			#{name}
+ 			, #{headcount}
+ 			, #{day}
+ 			, #{date}
+ 			, #{phonenumber}
+ 			, #{state}
+ 			
+ 		)	
+ 	
+ 	
+ 	</insert>
+ 
+ 
+ 
+ 	<select id="selectBooking" parameterType="map"
+ 	resultType="com.penguin.spring.test.booking.domain.Booking">
+ 	
+ 	 	SELECT
+ 			`id`
+ 			, `name`
+ 			, `headcount`
+ 			, `day`
+ 			, `date`
+ 			, `phonenumber`
+ 			, `state`
+ 			, `createdAT`
+ 			, `updatedAT`
+ 		FROM	
+ 			`booking`
+ 		WHERE
+ 			`name` = #{name}
+ 			 AND `phonenumber` = #{phonenumber}
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	</select>
+ 
  
  
  

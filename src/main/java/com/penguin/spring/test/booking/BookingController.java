@@ -1,10 +1,12 @@
 package com.penguin.spring.test.booking;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,8 +59,8 @@ public class BookingController {
 	// 삭제 기능
 	@ResponseBody
 	@GetMapping("/delete")
-	public Map<String, String> deleteBooking(@RequestParam("name")String name) {
-		int count = bookingService.deleteBooking(name);
+	public Map<String, String> deleteBooking(@RequestParam("id")int id) {
+		int count = bookingService.deleteBooking(id);
 		
 		//json 
 		// 성공 : {"result": "success"}
@@ -79,13 +81,58 @@ public class BookingController {
 	
 	
 	
+	//추가 기능
+	@GetMapping("/create")
+	@ResponseBody
+	public Map<String, String> createBooking(
+			@RequestParam("name") String name
+			// 2023년 09 08일
+			, @DateTimeFormat(pattern="yyyy년MM월dd일")@RequestParam("date") Date date
+			, @RequestParam("day") int day
+			, @RequestParam("headcount") int headcount
+			, @RequestParam("phonenumber") String phonenumber) {
+		
+	 int count = bookingService.addBooking(name, date, day, headcount, phonenumber);
+	 
+	 //성공 했을때 
+	 // 성공 : {result : success}
+  	 // 실패 : {result : fail}
+	 
+	Map<String, String> resultMap = new HashMap<>();
+	if(count == 1) {
+		resultMap.put("result", "success");
+	} else {
+		resultMap.put("result", "fail");
+	}
+	
+	 return resultMap;
+	 
+	}
 	
 	
 	
 	
 	
-	
-	
+	// 이름과 전화번호를 전달 받고,
+	// 일치하는 예약 번호를 response에 json으로 담아주는 API
+	@GetMapping("/search")
+	@ResponseBody
+	public Booking searchBooking(
+			@RequestParam("name") String name
+			, @RequestParam("phonenumber") String phonenumber) {
+		
+		
+		Booking booking = bookingService.getBooking1(name, phonenumber);
+		
+		// 응답 json에 조화된 데이터가 있는지 없는지 정보를 명확하게 정의 한다.
+		
+		//성공 실패 여부 성공을 하면 밑에가 출력 하게 실패하면 실패 했다라고 나오게 설정 하기!!
+		
+		//{"name" : 김인규 date: 2023-12-12 , day: ....} 
+		
+		
+		return booking;
+	}
 	
 	
 	

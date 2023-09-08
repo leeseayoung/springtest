@@ -9,7 +9,7 @@ public class Booking {
 	private int headcount;
 	private int day;
 	private Date date;
-	private String PHONEnUMBER;
+	private String phonenumber;
 	private String state;
 	private Date createdAT;
 	private Date updatedAT;
@@ -45,11 +45,11 @@ public class Booking {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getPHONEnUMBER() {
-		return PHONEnUMBER;
+	public String getPhonenumber() {
+		return phonenumber;
 	}
-	public void setPHONEnUMBER(String pHONEnUMBER) {
-		PHONEnUMBER = pHONEnUMBER;
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
 	}
 	public String getState() {
 		return state;
@@ -70,5 +70,7 @@ public class Booking {
 		this.updatedAT = updatedAT;
 	}
 	
+	
+
 	
 }
