@@ -57,7 +57,7 @@ public class UrlService {
 
 
 
-	//7일
+	//7일 삭제기능
 	public int deleteUrl(int id) {
 		
 		int count = urlRepository.deleteUrl(id);

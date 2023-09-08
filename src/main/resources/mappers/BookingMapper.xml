@@ -23,5 +23,14 @@
  	
  	</select>
  
+ 	<!-- 삭제 기능 -->
+  	<delete id="deleteBooking" parameterType="int">
+	 	DELETE FROM 
+	 		`booking` 
+	 	WHERE 
+	 		`name` = #{name}
+ 	</delete>
+ 
+ 
  
  </mapper>
