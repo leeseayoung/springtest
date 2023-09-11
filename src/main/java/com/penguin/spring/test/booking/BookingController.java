@@ -90,13 +90,14 @@ public class BookingController {
 			, @DateTimeFormat(pattern="yyyy년MM월dd일")@RequestParam("date") Date date
 			, @RequestParam("day") int day
 			, @RequestParam("headcount") int headcount
-			, @RequestParam("phonenumber") String phonenumber) {
+			, @RequestParam("phoneNumber") String phoneNumber) {
 		
-	 int count = bookingService.addBooking(name, date, day, headcount, phonenumber);
+	 int count = bookingService.addBooking(name, date, day, headcount, phoneNumber);
 	 
 	 //성공 했을때 
 	 // 성공 : {result : success}
   	 // 실패 : {result : fail}
+	 
 	 
 	Map<String, String> resultMap = new HashMap<>();
 	if(count == 1) {
@@ -119,10 +120,10 @@ public class BookingController {
 	@ResponseBody
 	public Booking searchBooking(
 			@RequestParam("name") String name
-			, @RequestParam("phonenumber") String phonenumber) {
+			, @RequestParam("phoneNumber") String phoneNumber) {
 		
 		
-		Booking booking = bookingService.getBooking1(name, phonenumber);
+		Booking booking = bookingService.getBooking1(name, phoneNumber);
 		
 		// 응답 json에 조화된 데이터가 있는지 없는지 정보를 명확하게 정의 한다.
 		

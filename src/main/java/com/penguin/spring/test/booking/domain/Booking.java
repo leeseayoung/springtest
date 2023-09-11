@@ -9,10 +9,11 @@ public class Booking {
 	private int headcount;
 	private int day;
 	private Date date;
-	private String phonenumber;
+	private String phoneNumber;
 	private String state;
 	private Date createdAT;
 	private Date updatedAT;
+	
 	
 	
 	public int getId() {
@@ -45,11 +46,11 @@ public class Booking {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getPhonenumber() {
-		return phonenumber;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPhonenumber(String phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	public String getState() {
 		return state;
@@ -69,6 +70,9 @@ public class Booking {
 	public void setUpdatedAT(Date updatedAT) {
 		this.updatedAT = updatedAT;
 	}
+	
+	
+	
 	
 	
 

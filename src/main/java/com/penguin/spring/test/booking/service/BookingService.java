@@ -43,11 +43,11 @@ public class BookingService {
 			, Date date
 			, int day
 			, int headcount
-			, String phonenumber) {
+			, String phoneNumber) {
 			
 		
 																					// input에 없는데 추가 해야하면 이렇게 임시로 넣어두됨
-			int count =	bookingRepository.insertBooking(name, date, day, headcount, phonenumber, "대기중");
+			int count =	bookingRepository.insertBooking(name, date, day, headcount, phoneNumber, "대기중");
 	
 			return count;
 	}

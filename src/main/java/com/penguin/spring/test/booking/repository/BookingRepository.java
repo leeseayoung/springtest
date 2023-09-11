@@ -41,7 +41,7 @@ public interface BookingRepository {
 			, @Param("date")Date date
 			, @Param("day")int day
 			, @Param("headcount")int headcount
-			, @Param("phonenumber")String phonenumber
+			, @Param("phoneNumber")String phoneNumber
 			, @Param("state")String state);
 	
 	
@@ -51,7 +51,7 @@ public interface BookingRepository {
 	//조회
 	public Booking selectBooking(
 			@Param("name") String name
-			, @Param("phonenumber")String phonenumber);
+			, @Param("phoneNumber")String phoneNumber);
 	
 	
 	
