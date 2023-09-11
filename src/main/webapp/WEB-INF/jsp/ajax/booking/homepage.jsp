@@ -18,8 +18,8 @@
 	            <ul class="nav nav-fill">
 	                <li class="nav-item"><a class="nav-link" href="#">팬션소개</a></li>
 	                <li class="nav-item"><a class="nav-link" href="#">객실보기</a></li>
-	                <li class="nav-item"><a class="nav-link" href="#">예약하기</a></li>
-	                <li class="nav-item"><a class="nav-link" href="#">예약목록</a></li>
+	                <li class="nav-item"><a class="nav-link" href="http://localhost:8080/booking/input">예약하기</a></li>
+	                <li class="nav-item"><a class="nav-link" href="http://localhost:8080/booking/list">예약목록</a></li>
 	            </ul>
 	        </nav>
 	    </header>
@@ -124,7 +124,7 @@
 		   						}  */
 		   						
 		   						
-		   						if(data == "") {
+		   						if(data.result == "fail") {
 		   							alert("조회 결과가 없습니다.");
 		   						} else {
 		   							alert("이름 : " + data.name + "\n"

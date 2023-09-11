@@ -57,9 +57,9 @@ public class BookingService {
 	
 	// 조회 기능 (8일)
 	
-	public Booking getBooking1(String name, String phonenumber) {
+	public Booking getBooking1(String name, String phoneNumber) {
 		
-		Booking booking = bookingRepository.selectBooking(name, phonenumber);
+		Booking booking = bookingRepository.selectBooking(name, phoneNumber);
 		
 		return booking;
 	}

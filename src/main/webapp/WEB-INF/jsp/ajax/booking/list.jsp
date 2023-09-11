@@ -44,7 +44,7 @@
 								<td><fmt:formatDate value="${booking.date}" pattern="yyyy년 M월 d일 "/></td>
 								<td>${booking.day}</td>
 								<td>${booking.headcount}</td>
-								<td>${booking.phonenumber}</td>
+								<td>${booking.phoneNumber}</td>
 								
 								<c:choose>
 									<c:when test="${booking.state eq '대기중'}">

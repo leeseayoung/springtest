@@ -78,7 +78,7 @@
 					let date = $("#dateInput").val();
 					let day = $("#daycountInput").val();
 					let headcount = $("#headcountInput").val();
-					let phonenumber = $("#phonenumberInput").val();
+					let phoneNumber = $("#phonenumberInput").val();
 					
 					
 					if(name == ""){
@@ -102,7 +102,7 @@
 						return;
 					}
 					
-					if(phonenumber == ""){
+					if(phoneNumber == ""){
 						alert("전화번호를 입력하세요");
 							return ;
 					}
@@ -112,7 +112,7 @@
 						
 						type:"get"
 						, url:"/booking/create"
-						, data:{"name":name, "date":date, "day":day, "headcount":headcount, "phonenumber":phonenumber}
+						, data:{"name":name, "date":date, "day":day, "headcount":headcount, "phoneNumber":phoneNumber}
 						, success:function(data) {
 							
 							if(data.result == "success") {

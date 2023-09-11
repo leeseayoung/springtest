@@ -118,7 +118,7 @@ public class BookingController {
 	// 일치하는 예약 번호를 response에 json으로 담아주는 API
 	@GetMapping("/search")
 	@ResponseBody
-	public Booking searchBooking(
+	public Map<String, Object> searchBooking(
 			@RequestParam("name") String name
 			, @RequestParam("phoneNumber") String phoneNumber) {
 		
@@ -128,11 +128,22 @@ public class BookingController {
 		// 응답 json에 조화된 데이터가 있는지 없는지 정보를 명확하게 정의 한다.
 		
 		//성공 실패 여부 성공을 하면 밑에가 출력 하게 실패하면 실패 했다라고 나오게 설정 하기!!
-		
+
 		//{"name" : 김인규 date: 2023-12-12 , day: ....} 
 		
+		// 조회 성공시{result : success, "booking" : "name" : 김인규 date: 2023-12-12 , day: ....}
+		// 조회 실패시{result : fail}
 		
-		return booking;
+		Map<String, Object> resultMap = new HashMap<>();
+		if(booking != null) {
+			resultMap.put("result", "success");
+			resultMap.put("booking", booking);
+		} else {
+			resultMap.put("result", "fail");
+			
+		}
+		
+		return resultMap;
 	}
 	
 	
