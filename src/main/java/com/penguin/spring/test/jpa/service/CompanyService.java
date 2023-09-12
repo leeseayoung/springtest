@@ -22,6 +22,7 @@ public class CompanyService {
 			, String scale 
 			, int headcount ) {
 		
+		// 저장 기능
 		Company company = Company.builder()
 							.name(name)
 							.business(business)
@@ -38,10 +39,13 @@ public class CompanyService {
 	
 	
 	
+	
 	//업데이트 기능
 	public Company updateCompany(int id, String scale, int headcount) {
+
+		//꼭 널인지 아닌지 같이 사용해야함
 		Optional<Company> OptionalCompany = companyRepository.findById(id);
-		
+		// null일 경우 에 어떤 값을 리턴할지 수행하는 기능
 		Company company = OptionalCompany.orElse(null);
 		
 		if(company != null) {
@@ -59,9 +63,11 @@ public class CompanyService {
 	
 	
 	
+	
+	
 	//삭제 기능
 	public void deleteCompany(int id) {
-		
+												//		.ifPresent(company -> companyRepository.delete(company))
 		Company company = companyRepository.findById(id).orElse(null);
 		
 		if(company != null) {

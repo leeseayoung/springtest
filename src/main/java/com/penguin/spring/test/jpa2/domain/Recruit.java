@@ -1,4 +1,4 @@
-package com.penguin.spring.test.jpa.domain;
+package com.penguin.spring.test.jpa2.domain;
 
 import java.util.Date;
 
@@ -16,50 +16,36 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-//jpa 간단하게 lombok 해주는 기능
-// 기본 생성자도 생성
-@NoArgsConstructor 
-// 생성자를 만드는 기능
+@NoArgsConstructor
 @AllArgsConstructor
-// builder 로 객체 만들수 있게 도와주는 기능
 @Builder(toBuilder=true)
-// 쉽게 사용하기 위해서 사용
 @Getter
-//연결 2번째
-@Table(name="company")
-//엔티티 1번째 정의 기능
+@Table(name="recruit")
 @Entity
-public class Company {
+public class Recruit {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	private String name;
+	@Column(name="companyId")
+	private int companyId;
 	
+	private String position;
+	private String responsibilities;
+	private String qualification;
+	private String type;
+	private String region;
+	private int salary;
 	
-	private String business;
+	@Column(name="deadline")
+	private Date deadline;
 	
-	
-	private String scale;
-	
-	
-	private int headcount;
-	
-	
-	// 자동으로 현재 시간 입력
 	@UpdateTimestamp
 	@Column(name="createdAt", updatable=false)
 	private Date createdAt;
-	
-	
 	@UpdateTimestamp
 	@Column(name="updatedAt")
 	private Date updatedAt;
-
-
-
-
-
+	
 }
-

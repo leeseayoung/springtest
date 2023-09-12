@@ -1,5 +1,8 @@
 package com.penguin.spring.test.jpa;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,19 +23,19 @@ public class CompanyController {
 	//추가 기능
 	@GetMapping("/create")
 	@ResponseBody
-	public Company createCompany() {
-		
-		String name = "버블팡";
-		String business = "여신 금융업";
-		String scale = "대기업";
-		int headcount = 6934;
-		
-		Company company = companyService.addCompany(name, business, scale, headcount);
+	public List<Company> createCompany() {
 		
 
+		List<Company> companyList = new ArrayList<>();
+		Company company = companyService.addCompany("넥슨", "컨텐츠 게임", "대기업", 3585);
+		companyList.add(company);
+		
+		
+		company = companyService.addCompany("버블팡", "여신 금융업", "대기업", 6834);
+		companyList.add(company);
 
 		
-		return company;
+		return companyList;
 	}
 	
 	
