@@ -30,8 +30,10 @@ public class Company {
 	
 	private String name;
 	
+	@Column(name="business")
 	private String business;
 	
+	@Column(name="scale")
 	private String scale;
 	
 	@Column(name="headcount")
