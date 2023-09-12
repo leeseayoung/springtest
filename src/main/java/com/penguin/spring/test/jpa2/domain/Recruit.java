@@ -39,7 +39,7 @@ public class Recruit {
 	private int salary;
 	
 	@Column(name="deadline")
-	private Date deadline;
+	private String deadline;
 	
 	@UpdateTimestamp
 	@Column(name="createdAt", updatable=false)
